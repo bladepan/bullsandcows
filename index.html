@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="a number guessing game">
+  <meta name="keywords" content="bulls,cows,game,numbers,1A2B">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bulls and Cows</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma-rtl.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Bulls and Cows</h1>
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Bulls and cows</a>, also known as MOO,
+        guess numbers, 1A2B, etc.
+      </p>
+      <p>
+        Guess a 4-digit secret number. The digits are all different. If the matching digits are in their right
+        positions, they are "bulls", if in different positions, they are "cows". Example:
+        <br />
+        Secret number: 4271 <br />
+        Guess: 1234 <br />
+        Answer: 1 bull and 2 cows. (The bull is "2", the cows are "4" and "1".)
+        <br />
+        Try to use as few steps as possible. Also try to beat the bot.
+      </p>
+      <p>
+        Click "Start Game" to start. Read more in <a href="https://github.com/bladepan/bullsandcows"
+          target="_blank">here</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <label class="label">Game Mode</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="gameMode" value="default" checked>
+        Bulls and cows
+      </label>
+      <label class="radio">
+        <input type="radio" name="gameMode" value="1a2b">
+        1A2B
+      </label>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="field is-grouped column">
+        <div class="control">
+          <button class="button is-link" onclick="startGame()">Start Game</button>
+        </div>
+      </div>
+      <div class="field is-grouped column">
+        <div class="control">
+          <button class="button is-link" onclick="showAnswer()">Show Answer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column field">
+        <div class="control">
+          <input class="input is-primary" type="text" placeholder="Input the number you guess. e.g. 0123"
+            id="guessInput">
+        </div>
+      </div>
+      <div class="column field is-grouped">
+        <div class="control">
+          <button class="button is-link" onclick="submitGuess()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="message is-info">
+      <div class="message-body" id="feedbackOutput">
+        Get started!
+      </div>
+    </article>
+  </div>
+
+
+  <div class="container">
+    <article class="message is-info">
+      <div class="message-body" id="timerOutput">
+        Time spent: 0s
+      </div>
+    </article>
+  </div>
+
+  <div class="container" id="output"></div>
+
+  <script src="game.js?version=1"></script>
+  <script src="ui.js?version=1"></script>
+</body>
+
+</html>
